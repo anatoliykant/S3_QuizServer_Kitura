@@ -8,6 +8,7 @@
 /spec.json
 ./config/localdev-config.json
 /*.xcodeproj
+/*.log
 
 # Xcode
 #

@@ -5,11 +5,18 @@
 //  Created by kant on 04/11/2019.
 //
 
-import LoggerAPI
 import Health
 import KituraContracts
 
 func initializeHealthRoutes(app: App) {
+	
+	// MARK: - Dependencies
+	
+	let health = Health()
+	
+	// MARK: - Public methods
+	
+	// MARK: GET handler
 	
 	app.router.get("/health") { (respondWith: (Status?, RequestError?) -> Void) -> Void in
 		if health.status.state == .UP {
@@ -18,5 +25,4 @@ func initializeHealthRoutes(app: App) {
 			respondWith(nil, RequestError(.serviceUnavailable, body: health.status))
 		}
 	}
-	
 }
